@@ -1,21 +1,19 @@
 class Bin {
-  constructor(x, y, radius) {
+  constructor(x, y, width,height) {
     var options = {
         isStatic:true
     }
-    this.body = Matter.Bodies.circle(x, y, radius, options);
-    this.radius = radius
-    this.x=x
-    this.y=y
+    this.body = Matter.Bodies.rectangle(x, y, width/3,height/3, options);
+    this.width = width
+    this.height = height
     this.bin=loadImage("dustbinX.png")
     World.add(world, this.body);
   }
   display(){
     var pos =this.body.position;
     push();
-    translate(pos.x, pos.y);
     imageMode(RADIUS);
-    image(this.bin, 0, 0, 220,220);
+    image(this.bin, pos.x,pos.y, this.width,this.height);
     pop();
   }
 };

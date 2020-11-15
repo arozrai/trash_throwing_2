@@ -5,7 +5,7 @@ class Ball {
           'friction':0.3,
           'density':1.2
       }
-      this.body = Matter.Bodies.circle(x, y, radius, options);
+      this.body = Matter.Bodies.circle(x, y, radius/3, options);
       this.radius = radius
       this.x=x
       this.y=y
@@ -16,7 +16,7 @@ class Ball {
       var pos =this.body.position;
       push();
       translate(pos.x, pos.y);
-      imageMode(RADIUS);
+      imageMode(CENTER);
       image(this.trash, 0, 0, this.radius, this.radius);
       pop();
     }
